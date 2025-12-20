@@ -26,41 +26,39 @@ To ensure the Graph Neural Networks (GNNs) run correctly, PyTorch Geometric (PyG
 * Python >= 3.8
 * NVIDIA GPU (Recommended)
 
-1. Create Environment
+###### 1. Create Environment
 
 We recommend using Anaconda to manage the environment:
 
 ```bash
-conda create -n mistic_env python=3.8
+conda create -n mistic_env python==3.8
 conda activate mistic_env
 ```
 
-2. Install MISTIC
+###### 2. Install MISTIC
 
 ```
 pip install MISTIC
 ```
 
-3. Install a version of PyTorch compatible with your CUDA driver (e.g., CUDA 12.1):
+###### 3. Install PyTorch
 
+Install a version of PyTorch compatible with your CUDA driver (**e.g., CUDA 12.1**)：
 
-#### Example for CUDA 12.1
 ```
-# 1. Install PyTorch (GPU version)
+# Install PyTorch (GPU version)
 pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url [https://download.pytorch.org/whl/cu121](https://download.pytorch.org/whl/cu121)
 ```
 
+###### 4. Install PyTorch Geometric (PyG) & Dependencies
 
-
-4. Install PyTorch Geometric (PyG) & Dependencies(e.g., torch-2.1.0 and cu121)
-
-Note: This is the most critical step. Do not simply use pip install torch-geometric. You must install the sparse libraries (torch_scatter, torch_sparse) that match your PyTorch version to enable GNN acceleration.
+Note: This is the most critical step. Do not simply use pip install torch-geometric. You must install the sparse libraries (torch_scatter, torch_sparse) that match your PyTorch version to enable GNN acceleration(**e.g., torch-2.1.0 and cu121**).
 
 ```Bash
-# 2. Install PyG Dependencies (Must match torch version)
+# Install PyG Dependencies (Must match torch version)
 pip install torch_scatter torch_sparse torch_cluster torch_spline_conv -f [https://data.pyg.org/whl/torch-2.1.0+cu121.html](https://data.pyg.org/whl/torch-2.1.0+cu121.html)
 
-# 3. Install PyTorch Geometric
+# Install PyTorch Geometric
 pip install torch_geometric
 ```
 
