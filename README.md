@@ -47,7 +47,7 @@ Install a version of PyTorch compatible with your CUDA driver (**e.g., CUDA 12.1
 
 ```
 # Install PyTorch (GPU version)
-pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url [https://download.pytorch.org/whl/cu121](https://download.pytorch.org/whl/cu121)
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
 ```
 
 ###### 4. Install PyTorch Geometric (PyG) & Dependencies
@@ -56,7 +56,7 @@ Note: This is the most critical step. Do not simply use pip install torch-geomet
 
 ```Bash
 # Install PyG Dependencies (Must match torch version)
-pip install torch_scatter torch_sparse torch_cluster torch_spline_conv -f [https://data.pyg.org/whl/torch-2.1.0+cu121.html](https://data.pyg.org/whl/torch-2.1.0+cu121.html)
+pip install torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.1.0+cu121.html
 
 # Install PyTorch Geometric
 pip install torch_geometric
