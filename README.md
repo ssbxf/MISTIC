@@ -53,7 +53,8 @@ pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url [http
 
 
 4. Install PyTorch Geometric (PyG) & Dependencies(e.g., torch-2.1.0 and cu121)
-   Note: This is the most critical step. Do not simply use pip install torch-geometric. You must install the sparse libraries (torch_scatter, torch_sparse) that match your PyTorch version to enable GNN acceleration.
+
+Note: This is the most critical step. Do not simply use pip install torch-geometric. You must install the sparse libraries (torch_scatter, torch_sparse) that match your PyTorch version to enable GNN acceleration.
 
 ```Bash
 # 2. Install PyG Dependencies (Must match torch version)
