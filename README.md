@@ -2,31 +2,20 @@
 
 ![](https://raw.githubusercontent.com/ssbxf/images/main/figure1-01.png)
 
-## 📖 Overview
+## Overview
 
-MISTIC is a deep learning framework designed for the robust integration of multiple spatial transcriptomics slices. Unlike conventional approaches that rely solely on cell-autonomous gene expression or rigid spatial alignment, MISTIC explicitly incorporates microenvironmental metrics—including neighborhood composition and signaling gradients—as primary integration features.
+**a** Workflow of microenvironment information extraction and multi-type data integration scope. MISTIC accommodates integration of multi-slice omics data from the same or distinct tissues.
 
-This strategy is empowered by a specialized multi-view Graph Neural Network (GNN) architecture, which utilizes attention mechanisms to dynamically decouple biological signals from technical artifacts. MISTIC effectively resolves the inherent trade-off between batch correction and biological conservation, ensuring the precise alignment of datasets while preventing the over-smoothing of fine-grained spatial domains and preserving rare, sample-specific niches.
+For each spatial transcriptomic slice, three core matrices are derived via the BANKSY algorithm: gene expression matrix, microenvironment expression matrix and microenvironment gradient matrix. **b** Construction of intra-slice adjacency matrices. Two distinct matrices are built for each slice: (i) Spatial distance matrix; (ii) Expression similarity matrix. Global intra-slice matrices are formed by block-diagonal concatenation of slice-specific matrices across all slices. **c** Construction of inter-slice adjacency matrix. Inter-slice mutual nearest neighbor (MNN) pairs are detected in global feature matrix (M). The final inter-slice adjacency matrix retains only high-confidence MNN pairs. **d** Hybrid graph neural network integration. Inputs include gene expression data and microenvironment data combined with adjacency matrices, outputting batch-corrected latent features. **e** Key biological applications of MISTIC. The integrated latent features support three core applications: (1) Batch effect removal (e.g., cross-platform, cross-developmental stage); (2) Condition-specific niche identification; (3) Microenvironmental interaction analysis.
 
-
-
-🌟 Key Features
-Dual-Dimensional Integration: Fuses intrinsic gene expression with extrinsic microenvironmental metrics.
-
-Scalable Graph Construction: Optimized pipeline for processing large-scale multi-slice datasets (e.g., human DLPFC, mouse embryos).
-
-Superior Batch Correction: Validated to outperform state-of-the-art methods (STAligner, GraphST, etc.) in batch mixing metrics (iLISI, kBET).
-
-Structure Preservation: High fidelity in reconstructing continuous tissue architectures and identifying rare cell types.
-
-## 🛠 Installation
+## Installation
 
 To ensure the Graph Neural Networks (GNNs) run correctly, PyTorch Geometric (PyG) and its dependencies must be installed strictly matching your PyTorch and CUDA versions.
 
 * Python >= 3.8
 * NVIDIA GPU (Recommended)
 
-###### 1. Create Environment
+###### Create Environment
 
 We recommend using Anaconda to manage the environment:
 
@@ -35,13 +24,13 @@ conda create -n mistic_env python==3.8
 conda activate mistic_env
 ```
 
-###### 2. Install MISTIC
+###### Install MISTIC
 
 ```
 pip install MISTIC
 ```
 
-###### 3. Install PyTorch
+###### Install PyTorch
 
 Install a version of PyTorch compatible with your CUDA driver (**e.g., CUDA 12.1**)：
 
@@ -50,7 +39,7 @@ Install a version of PyTorch compatible with your CUDA driver (**e.g., CUDA 12.1
 pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
 ```
 
-###### 4. Install PyTorch Geometric (PyG) & Dependencies
+###### Install PyTorch Geometric (PyG) & Dependencies
 
 Note: This is the most critical step. Do not simply use pip install torch-geometric. You must install the sparse libraries (torch_scatter, torch_sparse) that match your PyTorch version to enable GNN acceleration(**e.g., torch-2.1.0 and cu121**).
 
