@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "MISTIC"
-version = "0.0.1"
+version = "1.0.0"
 description = "Microenvironment-Guided Integration of Spatial Transcriptomic Information Across Slices"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your_email@example.com"}
+    {name = "Shuang Li", email = "buejy709@outlook.com"}
 ]
 
 
