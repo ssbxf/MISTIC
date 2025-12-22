@@ -28,6 +28,14 @@ conda activate mistic_env
 pip install MISTIC
 ```
 
+If you want to use MISTIC with Jupyter Lab/Notebook (e.g., run experimental notebooks, debug with interactive environment), install the `dev` optional dependencies:
+
+```
+# Install MISTIC with dev dependencies (includes Jupyter Lab and IPykernel)
+pip install MISTIC[dev]
+python -m ipykernel install --user --name=mistic_env
+```
+
 ###### Install PyTorch
 
 Install a version of PyTorch compatible with your CUDA driver (**e.g., CUDA 12.1**)：
