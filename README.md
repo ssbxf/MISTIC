@@ -57,7 +57,9 @@ pip install torch_scatter torch_sparse torch_cluster torch_spline_conv -f https:
 pip install torch_geometric
 ```
 
+## Tutorials
 
+The tutorial of `MISTIC` can be found [here](https://mistic-tutorials.readthedocs.io/en/latest/).
 
 
 
