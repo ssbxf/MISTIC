@@ -59,7 +59,7 @@ pip install torch_geometric
 
 ## Tutorials
 
-The tutorial of `MISTIC` can be found [here](https://mistic-tutorials.readthedocs.io/en/latest/).
+The tutorial of `MISTIC` can be found [here]([Microenvironment-Guided Integration of Spatial Transcriptomic Information Across Slices — MISTIC 1.0.0 documentation](https://mistic-tutorials.readthedocs.io/en/latest/)).
 
 
 
