@@ -171,11 +171,18 @@ class AutoEncoder(nn.Module):
         # Adaptive Processing based on Graph Topology
         # Logic: If the graph is heterogeneous and has sufficient cross-slice connections (MNN degree > 3),
         # use GCN to smooth embedding across slices. Otherwise, use simple Linear projection.
-        if self.is_heterogeneous and self.mnn_avg_degree is not None and self.mnn_avg_degree > 3:
-            # Use Spatial Edges for GCN smoothing (assuming spatial continuity is key here)
-            # You might want to check if this should be exp_edge_index or spatial_edge_index
-            z = self.gcn_exp(z_concat, spatial_edge_index)
+        if self.is_heterogeneous and self.mnn_avg_degree is not None:
+            deg = self.mnn_avg_degree
+            # 条件：3<deg<10  或者 deg>12
+            if (3 < deg < 10) or (deg > 12):
+                # print(f"[Forward LOG] Hetero ON | MNN_Avg_Deg={deg:.2f} → Activate GCN branch")
+                z = self.gcn_exp(z_concat, spatial_edge_index)
+            else:
+                # ≤3  或者 10~12 区间：走fc_z
+                # print(f"[Forward LOG] Hetero ON | MNN_Avg_Deg={deg:.2f} → Activate FC linear branch")
+                z = self.fc_z(z_concat)
         else:
+            # print(f"[Forward LOG] Hetero OFF or MNN_degree is None → Activate FC linear branch")
             z = self.fc_z(z_concat)
 
         # --- 4. Decode ---

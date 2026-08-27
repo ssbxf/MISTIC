@@ -18,7 +18,7 @@ def run_training(
         is_heterogeneous=True,
         num_epochs=500,
         lr=0.001,
-        contrastive_weight=0.1,
+        contrastive_weight=2.5,
         device=None,
         seed=42
 ):
